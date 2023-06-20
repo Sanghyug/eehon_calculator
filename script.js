@@ -446,7 +446,9 @@ function calculateChildSupport() {
       message = "여섯";
     }
 
-    message = message.concat(" 번째 자녀의 예상되는 월 양육비는 <span>");
+    message = message.concat(
+      " 번째 자녀를 위해 배우자로부터 받을 수 있는 월 양육비는 <span>"
+    );
 
     const fc = childSupportData[ageIndex][ciIndex];
     const cc = Math.floor(fc * sr).toLocaleString("ko-KR");
