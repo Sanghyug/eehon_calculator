@@ -1,0 +1,577 @@
+@charset "utf-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.7/dist/web/static/pretendard.css");
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+}
+html {
+    font-size: 62.5%;
+    font-weight: 700;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+}
+body {
+    width: 100%;
+    font-family: 'Pretendard';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+}
+ul, ol {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+input:focus {
+    outline: none;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+.flex-row {
+    display: flex;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.justify-content-center {
+    justify-content: center;
+}
+.justify-content-between {
+    justify-content: space-between;
+}
+.align-items-center {
+    align-items: center;
+}
+.horizontal-line {
+    width: 70%;
+    height: 1px;
+    background-color: #CCCCCC;
+}
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+header {
+    height: 8rem;
+    position: absolute;
+    top: 0;
+    background-color: transparent;
+    /* background-color: blue; */
+    width: 85%;
+}
+nav {
+    font-size: 1.7rem;
+}
+nav > ul {
+    column-gap: 10rem;
+    white-space: nowrap;
+}
+.hero{
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(98, 68, 35, 0) 80%, rgba(34, 26, 16,100)), url('img/hero.png');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    color: white;
+    justify-content: flex-start;
+}
+.hero > .container {
+    
+    width: 85%;
+    height: 50%;
+    text-shadow: 0px 0px 100px #3F2106, 0px 0px 50px #3F2106, 0px 0px 250px #3F2106;
+    row-gap: 2rem;
+    justify-content: flex-end;
+}
+.hero h1 {
+    font-size: 6.4rem;
+}
+.hero p {
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+
+#introduction {
+    font-size: 1.7rem;
+    text-align: center;
+    color: white;
+    background-color: #221A10;
+}
+#introduction > .container {
+    width: 70%;
+    padding: 15rem 0;
+}
+#introduction .book {
+    row-gap: 3rem;
+}
+#introduction .book p:last-child{
+    text-align: right;
+}
+#introduction .container > p{
+    font-size: 1.4rem;
+    color: #CCCCCC;
+    text-align: left;
+}
+
+#statistics .container{
+    width: 70%;
+    row-gap: 10rem;
+    padding: 15rem 0;
+}
+#statistics h2 {
+    text-align: center;
+    font-size: 3.2rem;
+}
+#my-divorce-chart {
+    display: none;
+}
+#statistics .graph > div:first-child {
+    text-align: center;
+    color: #222;
+    font-size: 2.4rem;
+    padding: 0 1.2rem
+}
+#statistics .graph > div:first-child > div{
+    border: none;
+    color: #222222;
+    cursor: pointer;
+}
+#statistics .graph > div:nth-child(2) {
+    background-color: #FAFBFC;
+    border-radius: .3rem;
+}
+#statistics .graph > div:last-child {
+    background-color: #FAFBFC;
+    border-radius: .3rem;
+}
+#statistics .graph > div:first-child div.active {
+    box-shadow: inset 0 -3px 0 black;
+}
+#statistics canvas {
+    width: 100%;
+}
+#statistics .content-container {
+    row-gap: 5rem;
+}
+#statistics .related-container {
+    row-gap: 2rem;
+}
+#statistics .related-container > p:first-child {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: #222;
+}
+#statistics .related-container > p:last-child {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #666;
+}
+#statistics .related {
+    column-gap: 2rem;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+#statistics .related > div {
+    height: 13rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #FAFBFC;
+    border-radius: .3rem;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+}
+#statistics .related p {
+    width: 20rem;
+    text-align: center;
+}
+#statistics .related p:first-child {
+    font-size: 2.4rem;
+    color:#222
+}
+#statistics .related p:last-child {
+    font-size: 1.7rem;
+    color:#666
+}
+
+#process {
+    color: #222;
+}
+#process .container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10rem;
+}
+#process .content-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5rem;
+}
+#process h2{
+    text-align: center;
+    font-size: 3.2rem;
+}
+#process .container {
+    padding: 15rem 0;
+    width: 70%;
+}
+#process .button-container {
+    display: flex;
+    justify-content: space-between;
+}
+#process .button {
+    font-weight: 600;
+    width: 18%;
+    font-size: 2rem;
+    opacity: 0.2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+    cursor: pointer;
+}
+#process .button.active{
+    opacity: 1;
+}
+#process .explanation {
+    background: #FAFBFC;
+    border-radius: .3rem;
+    display: none;
+    flex-direction: column;
+    row-gap: 5rem;
+    font-size: 1.7rem;
+    padding: 3rem 4rem;
+}
+#process .explanation.active{
+    display: flex;
+}
+#process .explanation > p {
+    font-size: 2.4rem;
+    font-weight: 600;
+}
+#process .explanation > div {
+    color: #666;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+}
+#process .explanation > div > ul {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+
+#calculator * {
+    width: fit-content;
+}
+#calculator label {
+    text-align: left;
+    cursor: pointer;
+}
+#calculator input {
+    text-align: right;
+    margin-right: 1rem;
+    padding: 1rem;
+}
+#calculator input[type="number"] {
+    width: 7rem;
+    height: 4rem;
+}
+#calculator input[type="range"] {
+    width: 24rem;
+    padding: 0;
+}
+#calculator input.money {
+    width: 24rem;
+}
+#calculator .container{
+    font-size: 1.7rem;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 7rem;
+    padding: 15rem 0;
+}
+#calculator h2 {
+    font-size: 3.2rem;
+}
+#calculator .input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 4rem;
+}
+#calculator .input-item {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    align-items: center;
+    width: 65%;
+    row-gap: 1rem;
+    column-gap: 10rem;
+}
+#calculator .input-container {
+    display: flex;
+    column-gap: 3rem;
+}
+#calculator .input-container.flex-column {
+    column-gap: 0;
+    row-gap: 1rem;
+}
+#calculator label {
+    display: flex;
+    font-weight: 400;
+    color: #666;
+    align-items: center;
+    white-space: nowrap;
+
+}
+#calculator .input-item > p {
+    color: #222;
+    font-weight: 600;
+    font-size: 1.7rem;
+    white-space: nowrap;
+
+}
+#calculator .multi-radio label {
+    white-space: normal;
+}
+#calculator .multi-radio > p {
+    align-self: flex-start
+}
+#calculator .input-sub-container {
+    grid-column-start: 2;
+}
+#calculator .input-sub-container.flex-column {
+    row-gap: 1rem;
+}
+#calculator .input-sub-container > p {
+    font-size: 1.4rem;
+    color: #cccccc;
+    text-align: left;
+    font-weight: 400;
+}
+#calculator .slider-labels {
+    display: flex;
+    width: 24rem;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    color: #666;
+    font-weight: 400;
+}
+#calculator .box-container {
+    row-gap: 2rem;
+    text-align: left;
+    width: 70%;
+}
+#calculator .box {
+    width: 100%;
+    padding: 3rem 4rem;
+    margin-bottom: -2rem;
+    transition: margin-bottom 0.5s ease;
+    cursor: pointer;
+}
+#calculator .box.active {
+    margin-bottom: 0;
+}
+#calculator .box-title {
+    font-size: 2.4rem;
+    font-weight: 600;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+}
+#calculator .box-title span:last-child {
+    text-align: right;
+}
+#calculator .hidden-box, .box {
+    background: #FAFBFC;
+    border-radius: .3rem;
+}
+#calculator .hidden-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 5rem;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 4rem;
+    transition: max-height, padding 0.5s ease;
+}
+
+#calculator .hidden-box.active {
+    max-height: 600rem;
+    padding: 3rem 4rem;
+}
+
+#calculator .box-content {
+    font-size: 1.7rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+    color: #666666;
+    font-weight: 400;
+}
+#calculator .hidden-box:nth-child(6) .box-content > p:first-child {
+    color: #ccc;
+}
+#calculator .hidden-box:last-child .box-content > p:first-child {
+    color: #ccc;
+}
+#calculator .box-container span:last-child {
+    font-weight: 600;
+    font-size: 2.4rem;
+    color: #222;
+}
+#calculator .additional {
+    display: none;
+    color: #ccc;
+}
+#child-support-result-box {
+    row-gap: 1rem;
+}
+
+#precedent .container {
+    row-gap: 5rem;
+    padding: 15rem 0;
+    width: 75%;
+    width: 70%;
+
+}
+#precedent .head {
+    row-gap: 7rem;
+}
+#precedent .head p:first-child {
+    font-size: 3.2rem;
+    text-align: center;
+}
+#precedent .head p:last-child {
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: #666;
+}
+#precedent .box-container {
+    row-gap: 2rem;
+}
+#precedent .box {
+    padding: 3rem 4rem;
+    margin-bottom: -2rem;
+    transition: margin-bottom 0.5s ease;
+    cursor: pointer;
+}
+#precedent .box.active {
+    margin-bottom: 0;
+}
+#precedent .box-title {
+    font-size: 2.4rem;
+    font-weight: 600;
+    display: flex;
+}
+#precedent .box-title span:last-child {
+    text-align: right;
+}
+#precedent .hidden-box, .box {
+    background: #FAFBFC;
+    border-radius: .3rem;
+}
+#precedent .hidden-box {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5rem;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 4rem;
+    transition: max-height, padding 0.5s ease;
+}
+#precedent .box:nth-child(7) {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 4rem;
+    transition: max-height, padding 0.5s ease;
+}
+#precedent .box:nth-child(7).open {
+    padding: 3rem 4rem;
+    max-height: 100rem;
+    margin-bottom: 0;
+}
+#precedent .hidden-box.active {
+    max-height: 600rem;
+    padding: 3rem 4rem;
+}
+
+#precedent .box-content {
+    font-size: 1.7rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 3rem;
+}
+#precedent .horizontal-line:last-child {
+    position: relative;
+    width: 100%;
+}
+#precedent .fold-button {
+    width: fit-content;
+    color: #222222;
+    font-size: 2.4rem;
+    border: none;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: -1.5rem;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+    cursor: pointer;
+    padding: 0 3rem;
+    white-space: nowrap;
+}
+footer {
+    width: 70%;
+    font-size: 1.7rem;
+    height: 20vh;
+    color: #666;
+}
+footer .container {
+    row-gap: 2rem;
+}
+footer span {
+    padding-right: 2rem;
+}
+footer strong {
+    color: #ccc;
+    padding-right: 1rem;
+}
+footer li:last-child i {
+    display: inline;
+}
+footer .business {
+    border: 1px solid #ebebeb;
+}

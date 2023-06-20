@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>당신을 위한 합리적 조언, 이혼계산기</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="flex-row">
+      <!-- <nav class="flex-row justify-content-between"> -->
+      <nav class="flex-row align-items-center">
+        <a href="#">Home</a>
+        <!-- <ul class="flex-row justify-content-between"> -->
+        <ul class="flex-row">
+          <li><a href="#introduction">사이트 소개</a></li>
+          <li><a href="#statistics">이혼통계</a></li>
+          <li><a href="#process">이혼과정</a></li>
+          <li><a href="#calculator">이혼계산기</a></li>
+          <li><a href="#precedent">판결사례</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="hero">
+      <div class="container flex-column">
+        <h1>이혼계산기</h1>
+        <p>합리적 선택을 위한 위자료, 재산분할, 양육비 계산기</p>
+      </div>
+    </section>
+    <section id="introduction" class="flex-column justify-content-center">
+      <div class="container flex-column justify-content-center">
+        <div class="book flex-column justify-content-center">
+          <p><i class="fa-solid fa-quote-left"></i></p>
+          <p>
+            어떤 직업이 만물의 공식(알고리즘)으로부터 안전한가를 판정하는 새로운
+            바로미터는 그 직업에 종사하는 사람들의 계층이 아니라 비용과 효율의
+            균형이다.<br />최대한 비효율적으로 돌아가도록 진화했으면서도 막대한
+            금액을 청구하는 직업과 분야(예를 들어 변호사, 회계사, 국회의원)는
+            자동화가 닥쳤을 때 속절없이 당할 것이다.
+          </p>
+          <p><i class="fa-solid fa-quote-right"></i></p>
+          <p>- 루크 도멜 <알고리즘으로 세상을 읽다> 중에서 -</p>
+        </div>
+        <p>
+          * 변호사나 판사처럼 법률가가 아닌 AI가 일반인에게 대답하는 자료로
+          만들었습니다. 그래서 엄격한 법률용어 대신 이해가 쉬운 일반적인 용어를
+          사용하였다는 점을 참고하세요.<br />* 또한 여기서 제공하는 정보는
+          판례와 사례연구를 바탕으로 만든 알고리즘이 제공하는 것입니다. 참고만
+          하시고 본격적인 재판(법률용어로는 심판이라고 해야 하나 ‘축구 심판’에
+          익숙한 일반인들은 익숙치 않아 재판으로 씁니다)에 들어가기로
+          마음먹으셨다면 당연히 전문 변호사와 상담하셔야 합니다.
+        </p>
+      </div>
+    </section>
+    <section id="statistics">
+      <div class="container flex-column">
+        <h2>혼인 및 이혼 통계</h2>
+        <div class="content-container flex-column">
+          <div class="graph">
+            <div class="flex-row">
+              <div>혼인</div>
+              <div>이혼</div>
+            </div>
+            <div id="my-marriage-chart">
+              <canvas></canvas>
+            </div>
+            <div id="my-divorce-chart">
+              <canvas></canvas>
+            </div>
+          </div>
+          <div class="related-container flex-column">
+            <p>관련 지표</p>
+            <div class="slider-contaier">
+              <div class="related flex-row">
+                <div>
+                  <p>혼인 건수</p>
+                  <p>19만 1,690건</p>
+                </div>
+                <div>
+                  <p>평균초혼연령</p>
+                  <p>34세</p>
+                </div>
+                <div>
+                  <p>평균이혼연령</p>
+                  <p>50세</p>
+                </div>
+                <div>
+                  <p>합계출산율</p>
+                  <p>1명</p>
+                </div>
+                <div>
+                  <p>인구수</p>
+                  <p>5,115만 8,034명</p>
+                </div>
+                <div>
+                  <p>출생아수</p>
+                  <p>26만 562명</p>
+                </div>
+                <div>
+                  <p>유치원/원아수</p>
+                  <p>55만 2,812명</p>
+                </div>
+                <div>
+                  <p>출생성비</p>
+                  <p>105명</p>
+                </div>
+                <div>
+                  <p>조혼인율</p>
+                  <p>105명</p>
+                </div>
+                <div>
+                  <p>조혼인율</p>
+                  <p>4 (천명당 혼인건수)</p>
+                </div>
+                <div>
+                  <p>평균재혼연령</p>
+                  <p>51세</p>
+                </div>
+                <div>
+                  <p>국제결혼건수</p>
+                  <p>1만 6,666건</p>
+                </div>
+                <div>
+                  <p>조이혼율</p>
+                  <p>2 (천명단 이혼건수)</p>
+                </div>
+              </div>
+            </div>
+            <p>
+              KOSIS(통계청, 인구동향조사). “이혼통계”. 네이버, 2023년 6월 1일,
+              https://search.naver.com/search.naver
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="horizontal-line"></div>
+    </section>
+    <section id="process">
+      <div class="container">
+        <h2>이혼 과정이 궁금해요</h2>
+        <div class="content-container">
+          <div class="button-container">
+            <div class="button active">
+              <img src="img/process-1.png" />
+              <p>이혼 절차에 대해서</p>
+            </div>
+            <div class="button">
+              <img src="img/process-2.png" alt="" />
+              <p>재산분할 과정</p>
+            </div>
+            <div class="button">
+              <img src="img/process-3.png" alt="" />
+              <p>재산분할시 고려사항</p>
+            </div>
+            <div class="button">
+              <img src="img/process-4.png" alt="" />
+              <p>양육권 문제에 관하여</p>
+            </div>
+            <div class="button">
+              <img src="img/process-5.png" alt="" />
+              <p>위자료에 관하여</p>
+            </div>
+          </div>
+          <div class="explanation active">
+            <p>이혼 절차에 대해서</p>
+            <div>
+              <p>일반적으로 이혼 절차는 다음과 같습니다.</p>
+
+              <ul>
+                <li>
+                  이혼 청구서 제출: 이혼을 원하는 측은 이혼 청구서를 작성하여
+                  가까운 가정법원에 제출합니다.
+                </li>
+                <li>
+                  조정 심리: 가정법원에서 이혼 청구서를 접수하면 이혼 과정을
+                  시작하기 전에 조정 심리를 거치게 됩니다. 이 심리에서 이혼
+                  문제를 해결할 수 있도록 양측이 협상하게 됩니다.
+                </li>
+                <li>
+                  이혼 심판: 조정 심리 이후 양측이 합의하지 못하면, 이혼 심판이
+                  진행됩니다. 이혼 심판에서는 이혼 문제에 대해 법원이
+                  결정합니다.
+                </li>
+                <li>
+                  이혼 판결: 이혼 심판 이후에는 이혼 판결이 나오게 되며, 이것이
+                  법적으로 유효한 이혼 결정서가 됩니다.
+                </li>
+              </ul>
+
+              <p>
+                한국의 이혼 절차는 복잡할 수 있기 때문에 변호사나 전문가의
+                도움을 받는 것이 좋습니다. 또한, 이혼 시 부동산, 자녀양육,
+                재산분할 등과 같은 문제도 해결해야 하므로, 이러한 문제들에 대해
+                충분한 정보를 수집하고 준비하는 것이 중요합니다.
+              </p>
+            </div>
+          </div>
+          <div class="explanation">
+            <p>재산분할 과정</p>
+            <div>
+              <p>
+                한국의 이혼 절차에서 재산분할은 매우 중요한 문제 중 하나입니다.
+                이혼 시 부부는 이혼 전 재산을 정확하게 파악하고, 이혼 후에는
+                이를 어떻게 분할할지 협의해야 합니다. 만약 부부가 합의하지 못할
+                경우, 이를 판결로 결정합니다. 한국의 법률에서는 이혼 시 재산을
+                &quot;동산&quot;과 &quot;유산&quot;으로 구분합니다.
+                &quot;동산&quot;은 부동산, &quot;유산&quot;은 돈, 주식, 보험금,
+                자동차 등과 같은 이동 재산을 의미합니다. 이혼 시에는 이러한 모든
+                재산을 공정하게 분할해야 합니다. 재산분할은 다음과 같은 순서로
+                진행됩니다.
+              </p>
+
+              <ul>
+                <li>
+                  재산 목록 작성: 이혼 전에는 양측이 모든 재산을 목록으로
+                  작성해야 합니다. 이 목록에는 모든 부동산, 자동차, 보험금,
+                  예금, 주식, 가구 등을 포함해야 합니다.
+                </li>
+                <li>
+                  분할 방법 협의: 이후, 양측은 어떤 방법으로 재산을 분할할지
+                  협의합니다. 대개는 부동산과 유산을 따로 분할하는 방법을
+                  취합니다.
+                </li>
+                <li>
+                  분할 계약서 작성: 분할 방법 협의 이후, 양측은 이를 분할
+                  계약서로 작성합니다. 이 계약서에는 양측의 이름, 분할 방법,
+                  분할한 재산의 내용 등이 포함됩니다.
+                </li>
+                <li>
+                  분할 결과 제출: 분할 계약서 작성 후, 이를 가까운 가정법원에
+                  제출합니다. 법원에서는 이를 검토한 후에 확정합니다.
+                </li>
+              </ul>
+
+              <p>
+                분할 결과 제출: 분할 계약서 작성 후, 이를 가까운 가정법원에
+                제출합니다. 법원에서는 이를 검토한 후에 확정합니다.
+              </p>
+            </div>
+          </div>
+          <div class="explanation">
+            <p>재산분할시 고려사항</p>
+            <div>
+              <p>
+                한국의 법률에서는 재산분할 시, 부부 각각의 기여도와 가족의
+                필요성 등을 고려하여 공정한 비율로 분할합니다. 이를 위해서는
+                분할 비율을 결정하는데 있어서 다음과 같은 기준을 고려합니다.
+              </p>
+
+              <ul>
+                <li>
+                  기여도: 부부가 이혼 전까지의 재산 기여도를 고려합니다. 즉,
+                  각자 얼마나 많은 돈과 노력을 기여했는지를 고려합니다.
+                </li>
+                <li>
+                  가족 상황: 이혼 후 각 부모가 자녀를 양육하기 위해 필요한
+                  금액과 재산을 고려합니다.
+                </li>
+                <li>
+                  연령, 건강 상태 등: 이혼 후 어느 측의 경제적 상황이 더
+                  불리한지, 연령, 건강상태 등을 고려하여 공정한 비율로
+                  분할합니다.
+                </li>
+                <li>
+                  소득 수준: 양측의 소득 수준을 고려하여 분할 비율을 결정할 수
+                  있습니다.
+                </li>
+              </ul>
+
+              <p>
+                위의 기준들은 일반적인 재산분할 시에 고려되는 것들입니다. 하지만
+                이외에도 부동산, 유산, 자녀양육비 등 다양한 상황에 따라 추가적인
+                기준이 고려될 수 있습니다. 이를 고려하여 법원에서는 공정한 분할
+                비율을 결정하게 됩니다.
+              </p>
+            </div>
+          </div>
+          <div class="explanation">
+            <p>양육권문제에 관하여</p>
+            <div>
+              <p>
+                한국의 법률에서는 이혼 시에 자녀 양육권을 부모 양쪽이 공동으로
+                갖게 됩니다. 이는 부모 양측 모두 자녀의 이익을 위해 협력하여
+                양육할 수 있도록 하는 것이 목적입니다.
+              </p>
+
+              <p>
+                한국의 법률에서는 이혼 시에 자녀 양육권을 부모 양쪽이 공동으로
+                갖게 됩니다. 이는 부모 양측 모두 자녀의 이익을 위해 협력하여
+                양육할 수 있도록 하는 것이 목적입니다.
+              </p>
+
+              <p>
+                따라서, 자녀 양육권은 돈을 많이 버는 부모나 성별에 따라 결정되는
+                것이 아니라, 자녀의 이익과 복지를 최우선으로 고려하여
+                결정됩니다.
+              </p>
+
+              <p>
+                한국 법률상으로는 자녀 한 명당 평균적인 양육비가 있습니다.
+                2021년 기준으로 자녀 한 명당 평균적인 양육비는 약 70만원에서
+                100만원 사이로 알려져 있습니다. 그러나 이 금액은 자녀의 연령,
+                건강상태, 교육비 등을 고려한 평균치이며, 부모 양측의 경제적
+                상황에 따라서 결정되는 것이 일반적입니다.
+              </p>
+            </div>
+          </div>
+          <div class="explanation">
+            <p>위자료에 관하여</p>
+            <div>
+              <p>
+                한국에서는 이혼 과정에서 상대방에게 위자료를 지급하는 경우, 그
+                금액은 부부간 협의나 법원 판결에 따라 결정됩니다. 이 때 위자료의
+                최대와 최소 금액은 법률에서 명시되어 있지 않고, 각 사례에 따라
+                다를 수 있습니다.
+              </p>
+
+              <p>
+                일반적으로, 위자료는 원인을 제공한 측이 상대방에게 경제적인
+                손실을 입힌 경우 또는 상대방의 삶의 질을 저하시킨 경우에
+                부과됩니다. 이러한 경우 상대방에게 일정 금액을 지급하게 됩니다.
+              </p>
+
+              <p>
+                이에 대한 정확한 금액은 각 사례에 따라 결정되므로, 법원 판결이나
+                부부간 협의를 통해 결정되며, 일반적으로는 상대방에게 경제적
+                손실의 보상을 위해 적절한 금액을 지급하는 것이 일반적입니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="horizontal-line"></div>
+    </section>
+    <section id="calculator">
+      <div class="container">
+        <h2>이혼계산기</h2>
+        <div class="input-box">
+          <div class="input-item">
+            <p>본인 성별</p>
+            <div class="input-container">
+              <label>
+                <input type="radio" name="gender" value="male" />
+                남
+              </label>
+              <label>
+                <input type="radio" name="gender" value="female" />
+                여
+              </label>
+            </div>
+          </div>
+          <div class="input-item">
+            <p>본인 나이</p>
+            <div class="input-container">
+              <label>
+                <input type="number" min="1" id="age-input" />
+                세
+              </label>
+            </div>
+          </div>
+          <div class="input-item">
+            <p>배우자 나이</p>
+            <div class="input-container">
+              <label>
+                <input type="number" min="1" id="spouse-age-input" />
+                세
+              </label>
+            </div>
+          </div>
+          <div class="input-item">
+            <p>결혼 기간</p>
+            <div class="input-container">
+              <label>
+                <input type="number" min="0" id="year-input" />
+                년
+              </label>
+              <label>
+                <input type="number" min="0" max="11" id="month-input" />
+                개월
+              </label>
+            </div>
+          </div>
+          <div class="input-item">
+            <p>동거 유무</p>
+            <div class="input-container">
+              <label id="stay-y">
+                <input type="radio" name="stay" value="y" />
+                동거 중
+              </label>
+              <label id="stay-n">
+                <input type="radio" name="stay" value="n" />
+                <input type="number" id="separate-month-input" />
+                개월 째 별거 중
+              </label>
+            </div>
+          </div>
+          <div class="input-item">
+            <p>자녀 유무</p>
+            <div class="input-container">
+              <label id="have-no-child">
+                <input type="radio" name="children" value="f" />
+                없음
+              </label>
+              <label id="have-child">
+                <input type="radio" name="children" value="t" />
+                <input type="number" id="children-input" />
+                명
+              </label>
+            </div>
+            <div
+              class="input-sub-container flex-column"
+              id="children-input-sub-container"
+            ></div>
+          </div>
+          <div class="input-item">
+            <p>배우자 이혼 의사</p>
+            <div class="input-container">
+              <label>
+                <input type="radio" name="spouse-intention" value="y" />
+                있음
+              </label>
+              <label>
+                <input type="radio" name="spouse-intention" value="n" />
+                없음
+              </label>
+            </div>
+            <div class="input-sub-container">
+              <p>* 배우자의 이혼 의사가 중요합니다.</p>
+            </div>
+          </div>
+          <div class="input-item multi-radio">
+            <p>파탄의 책임</p>
+            <div class="input-container flex-column">
+              <label>
+                <input type="checkbox" name="responsibility" value="1" />
+                배우자가 주정한 행위를 하였음
+              </label>
+              <label>
+                <input type="checkbox" name="responsibility" value="2" />
+                배우자가 본인을 버리고 떠남
+              </label>
+              <label>
+                <input type="checkbox" name="responsibility" value="3" />
+                본인이 배우자 또는 그 부모로부터 부당한 대우를 받음
+              </label>
+              <label>
+                <input type="checkbox" name="responsibility" value="4" />
+                배우자의 생사가 3년 이상 불분명함
+              </label>
+              <label>
+                <input type="checkbox" name="responsibility" value="5" />
+                결혼생활을 유지하기 어려운 중대한 사유가 있음
+              </label>
+              <label>
+                <input type="checkbox" name="responsibility" value="6" />
+                본인이 부정한 행위를 하였음
+              </label>
+              <label>
+                <input type="checkbox" name="responsibility" value="7" />
+                본인이 배우자를 버리고 떠남
+              </label>
+              <label>
+                <input type="checkbox" name="responsibility" value="8" />
+                배우자가 본인의 부모와 불화가 심함
+              </label>
+              <label>
+                <input type="checkbox" name="responsibility" value="9" />
+                본인에게 결혼생활을 유지하기 어려운 중대한 사유가 있음음
+              </label>
+            </div>
+            <div class="input-sub-container">
+              <p>* 배우자의 이혼 의사가 중요합니다.</p>
+            </div>
+          </div>
+          <div class="input-item">
+            <p>결혼 전 본인 재산</p>
+            <div class="input-container">
+              <label>
+                <input type="number" id="before-self-property" class="money" />
+                만원
+              </label>
+            </div>
+          </div>
+          <div class="input-item">
+            <p>결혼 전 배우자 재산</p>
+            <div class="input-container">
+              <label>
+                <input
+                  type="number"
+                  id="before-spouse-property"
+                  class="money"
+                />
+                만원
+              </label>
+            </div>
+            <div class="input-sub-container">
+              <p>
+                * 결혼 전 재산은 집 장만과 혼수, 각자의 통장, 납입한 보험료 등의
+                금액 합산입니다.<br />
+                집 장만을 위해 빚을 졌다면 현재의 부부합산 재산에서 제외하면
+                됩니다.
+              </p>
+            </div>
+          </div>
+          <div class="input-item">
+            <p>현 부부합산 재산</p>
+            <div class="input-container">
+              <label>
+                <input
+                  type="number"
+                  id="current-total-property"
+                  class="money"
+                />
+                만원
+              </label>
+            </div>
+            <div class="input-sub-container">
+              <p>
+                * 현재 부부가 보유한 전체 재산을 말합니다. 각자의 예적금,
+                부동산, 결혼 이후 납입한 보험료, 예상 퇴직금 등입니다.<br />
+                소송이 진행되면 실제 이런 각자의 재산을 모두 찾아낸 후 부부재산
+                형성의 기여도에 따라 분할하게 됩니다.
+              </p>
+            </div>
+          </div>
+          <div class="input-item multi-radio">
+            <p>재산 형성 기여도</p>
+            <div class="input-container flex-column">
+              <label>
+                <input type="range" min="0" max="100" value="50" id="slider" />
+                <span id="slider-value">50</span>
+              </label>
+              <div class="slider-labels">
+                <span>본인</span>
+                <span>배우자</span>
+              </div>
+            </div>
+            <div class="input-sub-container">
+              <p>
+                * 만약 본인이 여자이고 가사일과 양육 외에 따로 번 돈이 없다면
+                0%로 체크해주세요.<br />
+                알고리즘이 합산 재산과 자녀 수, 결혼 기간 등에 따라 보정을
+                해드립니다.
+              </p>
+            </div>
+          </div>
+          <div class="input-item">
+            <p>본인 월 수입(세전)</p>
+            <div class="input-container">
+              <label>
+                <input type="number" id="self-salary" class="money" />
+                만원
+              </label>
+            </div>
+          </div>
+          <div class="input-item">
+            <p>배우자 월 수입(세전)</p>
+            <div class="input-container">
+              <label>
+                <input type="number" id="spouse-salary" class="money" />
+                만원
+              </label>
+            </div>
+          </div>
+          <div class="input-item multi-radio">
+            <p>양육자 지정 관련</p>
+            <div class="input-container flex-column">
+              <label>
+                <input type="checkbox" name="rearer" value="1" />
+                과거부터 현재까지 계속 양육하여 왔음
+              </label>
+              <label>
+                <input type="checkbox" name="rearer" value="2" />
+                현재는 같이 있지 못하나 파탄 이전까진 주된 양육자였다
+              </label>
+              <label>
+                <input type="checkbox" name="rearer" value="3" />
+                별거 이후 혼자 양육하고 있다
+              </label>
+              <label>
+                <input type="checkbox" name="rearer" value="4" />
+                자녀가 본인과 살기를 희망한다
+              </label>
+              <label>
+                <input type="checkbox" name="rearer" value="5" />
+                주거 공간, 형제나 부모 등 보조 양육자, 경제 형편 등 양육환경이
+                더 좋다
+              </label>
+              <label>
+                <input type="checkbox" name="rearer" value="5" />
+                자녀와 본인이 더 친밀하다
+              </label>
+            </div>
+            <div class="input-sub-container">
+              <p>* 해당되는 사항들을 모두 체크해주세요.</p>
+            </div>
+          </div>
+        </div>
+        <div class="box-container flex-column">
+          <div class="box">
+            <div class="box-title">
+              <span>이혼 성립 여부</span>
+              <span><i class="fas fa-angle-down"></i></span>
+            </div>
+          </div>
+          <div class="hidden-box">
+            <div class="box-title">
+              <span>이혼 성립 여부</span>
+              <span><i class="fas fa-angle-up"></i></span>
+            </div>
+            <div class="box-content">
+              <p id="possibility-message"></p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-title">
+              <span>위자료 계산기</span>
+              <span><i class="fas fa-angle-down"></i></span>
+            </div>
+          </div>
+          <div class="hidden-box">
+            <div class="box-title">
+              <span>위자료 계산기</span>
+              <span><i class="fas fa-angle-up"></i></span>
+            </div>
+            <div class="box-content">
+              <p id="compensation-text">
+                예상되는 위자료는 <span id="compensation"></span> 입니다.
+              </p>
+              <p id="compensation-message">
+                결혼생활의 파탄에 배우자의 책임이 크더라도 현재 가지고 있는
+                재산과 형편에 따라 위자료는 결정됩니다.
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-title">
+              <span>재산분할 계산기</span>
+              <span><i class="fas fa-angle-down"></i></span>
+            </div>
+          </div>
+          <div class="hidden-box">
+            <div class="box-title">
+              <span>재산분할 계산기</span>
+              <span><i class="fas fa-angle-up"></i></span>
+            </div>
+            <div class="box-content">
+              <p>
+                * 100여 건 가량의 실제 판결 사례를 바탕으로 만든
+                알고리즘입니다.<br />
+                그래서 결혼 전 재산이 과도하게 많았다거나 증여나 상속 또는 한
+                쪽의 수입이 매우 클 때 등 일반적이지 않은 사례의 경우 엉뚱한
+                결과값이 나올 수 있다는 점을 이해해주세요.
+              </p>
+              <p class="additional">
+                * 결혼 전 재산을 뺀 부부 합산재산을 나눈 금액입니다.
+              </p>
+              <p>
+                예상되는 분할 재산은 <span id="property-split"></span> 입니다.
+              </p>
+              <p>
+                잔인한 싸움이 될 수 있습니다. 법률이 보장하는 계좌 및 부동산,
+                동산, 부채 정보를 통해 공동의 재산과 각자의 재산을 찾고 증거로
+                제출됩니다. 그리고 재산 형성의 기여도, 결혼 전 재산 등을 따져
+                분할 비율이 결정됩니다.
+              </p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-title">
+              <span>양육비 계산기</span>
+              <span><i class="fas fa-angle-down"></i></span>
+            </div>
+          </div>
+          <div class="hidden-box">
+            <div class="box-title">
+              <span>양육비 계산기</span>
+              <span><i class="fas fa-angle-up"></i></span>
+            </div>
+            <div class="box-content">
+              <p>
+                * 고액의 비용이 발생하는 자녀의 치료비나 개인회생 같은 특수한
+                경제적 상황 등은 고려하지 않았습니다.
+              </p>
+              <div id="child-support-result-box" class="flex-column"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="precedent">
+      <div class="horizontal-line"></div>
+      <div class="container flex-column">
+        <div class="head flex-column">
+          <p>참고할만한 판례들</p>
+          <p>
+            모든 판결이 그렇듯 이혼 역시 각자 처한 상황과 처지가 달라 명쾌한
+            예측이 불가능합니다. 이럴 때 참고할 수 있는 것이 판례들이죠. 상황에
+            따른 기존 판결문을 참고하시면 많은 도움이 될 겁니다.
+          </p>
+        </div>
+        <div class="box-container flex-column">
+          <div class="box">
+            <div class="box-title">
+              <span>시부모 부양의 문제에 대한 판결의 예</span>
+              <span><i class="fas fa-angle-down"></i></span>
+            </div>
+          </div>
+          <div class="hidden-box">
+            <div class="box-title">
+              <span>시부모 부양의 문제에 대한 판결의 예</span>
+              <span><i class="fas fa-angle-up"></i></span>
+            </div>
+            <div class="box-content">
+              <div>
+                <p>판결문</p>
+                <p>
+                  원고는 피고가 결혼 당시 원고의 모친을 모시기로 합의하고
+                  결혼하였음에도 원고의 모친을 제대로 모시지 않아 원고와 피고
+                  사이에 불화가 발생함으로써 두 사람 사이의 혼인관계가
+                  파탄되었다고 주장한다. 살피건대 원고는 피고가 원고의 모친을
+                  봉양하는 것이 부부관계에서 파생하는 당연한 의무임을 전제로
+                  이와 같이 주장하는 듯하나, 피고가 원고의 모친을 모시고 살면서
+                  병수발하는 것이 어떠한 경우에도 무조건적으로 이행하여야 하는
+                  배우자 또는 며느리로서의 당연한 의무라고 볼 수는 없다. 앞서 본
+                  사실관계에 의하면, 피고가 신장투석을 하는 원고의 모친을
+                  모시면서 힘들어할 때 원고는 모친의 폭언과 병수발로 피고가
+                  정신적 고통을 받고 힘든 것을 알았거나 또는 충분히 알 수
+                  있었음에도 불구하고 이를 외면한 채 피고를 위로하고 격려하거나
+                  피고와 자신의 모친 사이를 화해 중재하기는커녕 피고를
+                  간병인처럼 취급하고 모친의 편만 들면서 피고를 더욱 힘들게
+                  하였다고 보여진다. 설령 피고가 원고와 결혼하면서 원고의 모친을
+                  모시기로 합의하였다고 하더라도 원고나 원고 모친의 부당한
+                  대우까지 감내하면서 봉양하겠다는 뜻이라고 보기는 어려울 뿐만
+                  아니라, 피고와의 결혼 전 약속만으로 원고와 원고 모친의 앞서 본
+                  행동이 정당화 될 수도 없다고 할 것이다.(2019르20775)
+                </p>
+              </div>
+              <div>
+                <p>설명</p>
+                <p>
+                  결혼 전에 어머니 부양을 약속했다 하더라도 그것이 오랜 병수발과
+                  폭언을 감수해야 하는 의무를 진 것은 아니라는 판결입니다. 남편
+                  쪽에서 위 이유를 들어 파탄을 책임을 아내에게 돌렸지만 재판부는
+                  17년간의 결혼생활 동안 아내가 당한 수모와 비난을 짐작해 파탄의
+                  책임을 남편에게 있다고 하여 위자료 2천만원을 결정하였습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-title">
+              <span>부부싸움 후 작성한 각서의 효력에 대한 사례</span>
+              <span><i class="fas fa-angle-down"></i></span>
+            </div>
+          </div>
+          <div class="hidden-box">
+            <div class="box-title">
+              <span>부부싸움 후 작성한 각서의 효력에 대한 사례</span>
+              <span><i class="fas fa-angle-up"></i></span>
+            </div>
+            <div class="box-content">
+              <div>
+                <p>판결문</p>
+                <p>
+                  앞서 본 사실관계 및 이 사건 이행각서의 내용을 종합하면, 이
+                  사건 이행각서에 따른 약정은 당사자 간에 협의이혼의 성립을
+                  조건으로 하는 약정으로 봄이 타당한바, 원고와 피고 사이에 실제
+                  협의이혼이 성사되지 못하고 이 사건 이혼 소송에 이른 이상 그
+                  효력이 없다고 할 것이고(대법원 2003. 8. 19. 선고 2001다14061
+                  판결 등 참조), 갑 제15, 30호증의 각 기재만으로는 이 사건
+                  이행각서 작성 이후인 2018. 4. 17. 피고가 사행성 게임을
+                  하였다고 인정하기 어렵고 달리 이를 인정할 증거가 없어 이 사건
+                  이행각서에서 정한 조건이 성취되었다고도 볼 수 없으므로, 원고의
+                  이 부분 주장은 받아들일 수 없다.
+                </p>
+              </div>
+              <div>
+                <p>설명</p>
+                <p>
+                  남자가 도박에 중독되어, 문제가 될 때마다 수차례 각서를
+                  써주고(집 명의를 넘겨준다는 내용) 공증도 받았습니다. 하지만
+                  서로의 재산을 찾고 나누는 싸움인 이혼소송으로 이어지면서 그
+                  효력을 상실했다는 내용입니다. 그래도 파탄의 책임을 증명하는데
+                  그 증거로서 효과는 있어 보입니다.(자세한 것은 전문 변호사와
+                  상담하세요.)
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-title">
+              <span>남자가 결혼 전 취득한 집에 대한 재산분할 사례</span>
+              <span><i class="fas fa-angle-down"></i></span>
+            </div>
+          </div>
+          <div class="hidden-box">
+            <div class="box-title">
+              <span>남자가 결혼 전 취득한 집에 대한 재산분할 사례</span>
+              <span><i class="fas fa-angle-up"></i></span>
+            </div>
+            <div class="box-content">
+              <div>
+                <p>판결문</p>
+                <p>
+                  피고는 위 각 부동산이 혼인 전 피고와 피고 부모의 자금으로
+                  취득한 특유재산이므로 분할대상에서 제외되어야 한다는 취지로
+                  주장하나, 앞서 본 바와 같이 원고가 혼인기간 중 소득활동을
+                  하면서 위 부동산의 가치유지 및 감소방지에 기여한 점이
+                  인정되므로, 위 부동산을 분할대상재산으로 봄이 타당하다. 다만,
+                  위와 같은 사정을 기여도를 정함에 있어 참작하기로
+                  한다.(2017드합30934)
+                </p>
+              </div>
+              <div>
+                <p>설명</p>
+                <p>
+                  남자가 결혼 전에 취득한 집이지만 결혼 기간 10년 동안 여자가
+                  주로 생활비를 벌었다는 점을 들어 45: 50의 재산배분 목록에
+                  반영한다는 취지의 판결입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="box-title">
+              <span>파탄의 책임에 대해 자주 인용되는 대법원 판례</span>
+              <span><i class="fas fa-angle-down"></i></span>
+            </div>
+          </div>
+          <div class="hidden-box">
+            <div class="box-title">
+              <span>파탄의 책임에 대해 자주 인용되는 대법원 판례</span>
+              <span><i class="fas fa-angle-up"></i></span>
+            </div>
+            <div class="box-content">
+              <div>
+                <p>판결문</p>
+                <p>
+                  인간으로서 단점이나 결함이 없는 인격체는 극히 드문 만큼
+                  혼인생활 도중에 배우자의 일방 또는 쌍방의 인격적인 약점이
+                  드러남으로써 상호간에 갈등과 불화가 일어 원만한 혼인생활에
+                  지장이 초래되는 경우는 얼마 든지 예상되는 일이므로, 혼인관계에
+                  있어 부부가 협조하여 그와 같은 장애를 극복하는 일은 위와 같은
+                  부부간의 협조의무에서 우러나는 보편적 과제라 할 것이다. 따라서
+                  혼인생활에 그러한 장애가 발생하였다면 배우자 쌍방은 부부라는
+                  공동생활체로서의 결합관계를 유지하고자 하는 의지를 가지고 각자
+                  상대방에 대한 애정과 이해, 자제 및 설득을 통하여 그러한 장애를
+                  극복하기 위해 노력할 공동의 의무가 있다. 그렇다면 배우자 중
+                  어느 일방의 성격적 결함이나 비판받을 행동으로 인하여 혼인의
+                  안녕을 해하는 갈등이나 불화가 일어났다 하여도, 단편적인 어느
+                  한, 두 개의 행위로 인해 당장 혼인관계가 회복하지 못할
+                  파탄상태에 빠진 것이 아닌 이상, 그와 같은 갈등과 불화를
+                  치유하여 원만한 혼인관계를 유지하기 위해 노력할 의무는 배우자
+                  쌍방에게 있다(대법원 2010. 7. 29. 선고 2008므1475 판결 등
+                  참조).
+                </p>
+              </div>
+              <div>
+                <p>설명</p>
+                <p>
+                  남자가 조건만남을 통해 부정 행위를 한 것이 발각되어 문제가 된
+                  적이 있었고, 이후 여자도 동창과 부정한 관계를 맺은 정황이
+                  증거로서 드러난 케이스입니다. 서로가 서로의 잘못을 지적하며
+                  책임을 묻지만 재판부는 이러한 갈등상황을 극복하기 위한 노력이
+                  부족하다고 판단하여 파탄의 책임이 동등하다고 결정했습니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="horizontal-line">
+          <button class="fold-button">
+            <span>더보기</span><span><i class="fas fa-angle-down"></i></span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <footer class="flex-row align-items-center">
+      <div class="container flex-column">
+        <h4>회사정보</h4>
+        <ul>
+          <li>
+            <strong>회사명</strong>
+            <span>주식회사 날마다자라는아이 (NLJI Co., Ltd.)</span>
+            <strong>대표</strong><span>박상혁</span> <strong>대표전화</strong>
+            <span>070-4246-2347</span> <strong>팩스</strong>
+            <span>0504-286-2347</span>
+          </li>
+          <li>
+            <strong>주소</strong
+            ><span
+              >05029 서울특별시 광진구 능동로 120 (화양동) , B105호(화양동,
+              건국대학교 창의관)</span
+            >
+          </li>
+          <li>
+            <strong>사업자 등록번호</strong><span>286-86-01214</span>
+            <strong>통신판매업 신고</strong
+            ><span
+              >2019-서울광진-0807 &nbsp;<a
+                href="http://www.ftc.go.kr/info/bizinfo/communicationList.jsp"
+                class="business"
+                >사업자정보확인</a
+              ></span
+            >
+          </li>
+          <li>
+            <strong>개인정보관리책임자</strong
+            ><span class=""
+              >박상혁 (<a href="mailto:airtory@naver.com">airtory@naver.com</a
+              >)</span
+            >
+            <strong>이메일</strong
+            ><span class="email"
+              ><a href="mailto:airtory@naver.com"
+                ><i class="fa-regular fa-envelope"></i
+                >&nbsp;airtory@naver.com</a
+              ></span
+            >
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</html>
